@@ -1,4 +1,4 @@
-# simple-go
+# simple-go LAB
 Simple app(go) with docker build/push, deploy on kubernetes with Jenkins pipeline
 
 ## Environment
