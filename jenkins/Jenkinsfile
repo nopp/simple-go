@@ -26,6 +26,11 @@ pipeline{
                sh "docker push registry.carlosmalucelli.com/simple-go:${params.TAG}"
             }
         }
+        stage("Kubernetes apply ingress"){
+            steps{
+                sh "kubectl apply -f k8s/ingress.yaml"
+            }
+        }
         stage("Kubernetes apply service"){
             steps{
                 sh "kubectl apply -f k8s/service.yaml"
