@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: simple-go
-        image: registry.carlosmalucelli.com/simple-go:2
+        image: registry.carlosmalucelli.com/simple-go:XXVERSIONXX
         ports:
         - containerPort: 8000
