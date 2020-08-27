@@ -9,11 +9,11 @@ import (
 )
 
 func teste(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("nova versão!")
+	json.NewEncoder(w).Encode("Teste 123")
 }
 
 func version(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("v2.0")
+	json.NewEncoder(w).Encode("v1.0")
 }
 
 func main() {
