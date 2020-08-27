@@ -1,5 +1,5 @@
-# simple-go LAB
-Simple app(go) with docker build/push, deploy on kubernetes with Jenkins pipeline
+# simple-go
+Simple Lab running k3s(raspberrypi cluster) to test an app(go), docker(build/push), kubernetes(deploy) and Jenkins pipeline.
 
 ## Environment
 ```
