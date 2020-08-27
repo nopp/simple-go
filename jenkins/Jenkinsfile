@@ -1,0 +1,45 @@
+pipeline{
+    agent { label 'raspberry-violento'}
+    stages {
+        stage("Pull Repository"){
+            steps{
+                git url: 'https://github.com/nopp/simple-go.git'
+            }
+        }
+        stage('Git checkout tag') {
+            steps {
+                sh "git checkout ${params.TAG}"
+            }
+        }
+        stage("Build Docker Imge"){
+            steps{
+                sh "docker build -t registry.carlosmalucelli.com/simple-go:${params.TAG} ."
+            }
+        }
+        stage("Push Docker Imge"){
+            steps{
+               sh "docker push registry.carlosmalucelli.com/simple-go:${params.TAG}"
+            }
+        }
+        stage("Kubernetes apply service"){
+            steps{
+                sh "kubectl apply -f k8s/service.yaml"
+            }
+        }
+        stage("Change tag version on deployment"){
+            steps{
+                sh "sed -i 's/XXVERSIONXX/${params.TAG}/g' k8s/deploy.yaml 2>&1 > /dev/null"
+            }
+        }
+        stage("Kubernetes apply deployment"){
+            steps{
+                sh "kubectl apply -f k8s/deploy.yaml"
+            }
+        }
+        stage("Kubernetes rollout status"){
+            steps{
+                sh "kubectl rollout status deploy simple-go '--timeout=300s'"
+            }
+        }
+    }
+}
