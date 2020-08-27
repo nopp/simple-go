@@ -11,6 +11,11 @@ pipeline{
                 sh "git checkout ${params.TAG}"
             }
         }
+        stage('Unit test') {
+            steps {
+                sh "go test -v"
+            }
+        }
         stage("Build Docker Imge"){
             steps{
                 sh "docker build -t registry.carlosmalucelli.com/simple-go:${params.TAG} ."
@@ -28,7 +33,7 @@ pipeline{
         }
         stage("Change tag version on deployment"){
             steps{
-                sh "sed -i 's/XXVERSIONXX/${params.TAG}/g' k8s/deploy.yaml"
+                sh "sed -i 's/XXVERSIONXX/${params.TAG}/g' k8s/deploy.yaml 2>&1 > /dev/null"
             }
         }
         stage("Kubernetes apply deployment"){
