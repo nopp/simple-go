@@ -13,7 +13,7 @@ func teste(w http.ResponseWriter, r *http.Request) {
 }
 
 func version(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("v1.0")
+	json.NewEncoder(w).Encode("v2.0")
 }
 
 func main() {
