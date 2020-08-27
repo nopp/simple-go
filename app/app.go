@@ -9,11 +9,11 @@ import (
 )
 
 func teste(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("Teste 456")
+	json.NewEncoder(w).Encode("Teste 789")
 }
 
 func version(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode("v2.0")
+	json.NewEncoder(w).Encode("v3.0")
 }
 
 // StartApp - Start to listen server
