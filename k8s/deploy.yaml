@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-go
+  labels:
+    app: simple-go
+spec:
+  selector:
+    matchLabels:
+      app: simple-go
+  template:
+    metadata:
+      labels:
+        app: simple-go
+    spec:
+      containers:
+      - name: simple-go
+        image: registry.carlosmalucelli.com/simple-go:1
+        ports:
+        - containerPort: 8000
