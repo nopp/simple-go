@@ -8,9 +8,9 @@ Simple app(go) with docker build/push, deploy on kubernetes with Jenkins pipelin
 1 x Raspberry Pi4 8GB (192.168.1.185)
 ```
 
-k3s running on raspberrypi cluster
-* Master (Raspberry Pi4 4gb)
-* Worker (Raspberry Pi4 8gb)
+k3s
+* Master (k8s01 - Raspberry Pi4 4gb)
+* Worker (k8s02 - Raspberry Pi4 8gb)
 
 ```
 $ kubectl get nodes
