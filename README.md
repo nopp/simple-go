@@ -12,6 +12,18 @@ k3s running on raspberrypi cluster
 * Master (Raspberry Pi4 4gb)
 * Worker (Raspberry Pi4 8gb)
 
+```
+$ kubectl get nodes
+NAME    STATUS   ROLES    AGE   VERSION
+k8s01   Ready    master   89d   v1.18.2+k3s1
+k8s02   Ready    <none>   89d   v1.18.2+k3s1
+
+$ kubectl top nodes
+NAME    CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+k8s01   1924m        48%    867Mi           22%
+k8s02   553m         13%    841Mi           10%
+```
+
 Jenkins
 * Raspberry Pi3 1GB
 
@@ -103,8 +115,8 @@ Step 2/4 : COPY . .
  ---> e6d26d9d64b9
 Step 3/4 : RUN unset GOPATH     && go build -o main .
  ---> Running in 02b06a970091
-[91mgo: downloading github.com/gorilla/mux v1.8.0
-[0mRemoving intermediate container 02b06a970091
+downloading github.com/gorilla/mux v1.8.0
+Removing intermediate container 02b06a970091
  ---> df410463f2dc
 Step 4/4 : ENTRYPOINT ["./main"]
  ---> Running in 1acb9274aec4
