@@ -1,6 +1,26 @@
 # simple-go
 Simple app(go) with docker build/push, deploy on kubernetes with Jenkins pipeline
 
+## Environment
+```
+1 x Raspberry Pi3 1GB (192.168.1.118)
+1 x Raspberry Pi4 4GB (192.168.1.181)
+1 x Raspberry Pi4 8GB (192.168.1.185)
+```
+
+k3s running on raspberrypi cluster
+* Master (Raspberry Pi4 4gb)
+* Worker (Raspberry Pi4 8gb)
+
+Jenkins
+* Raspberry Pi3 1GB
+
+Jenkins Agent
+* Raspberry Pi4 8GB (Responsible for build docker images)
+
+Docker registry 
+* Raspberry Pi3 1GB
+
 ![Image Alt](https://raw.githubusercontent.com/nopp/simple-go/master/.img/jenkins.png)
 
 
